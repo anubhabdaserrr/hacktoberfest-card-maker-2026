@@ -731,7 +731,8 @@
 
   async function runEngine(prompt) {
     const e = engineOf();
-    if (e === "ollama") return ollamaChat("https://ollama.com", $("omodel").value.trim(), prompt, $("okey").value.trim());
+    // if (e === "ollama") return ollamaChat("https://ollama.com", $("omodel").value.trim(), prompt, $("okey").value.trim());
+    if (e === "ollama") return ollamaChat(location.origin + "/cloud", $("omodel").value.trim(), prompt, $("okey").value.trim());
     if (e === "local") return ollamaChat($("lurl").value.trim(), $("lmodel").value.trim(), prompt, "");
     const sample = await getSample();
     if (!sample) throw new Error("unavailable");
